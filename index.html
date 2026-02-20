@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة الخدمات الرقمية</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container" id="app">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-cloud"></i>
+                    <span>خدمات المنصة</span>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <ul class="nav-list">
+                    <li class="nav-item active" data-service="design">
+                        <i class="fas fa-palette"></i>
+                        <span>مولد التصميمات</span>
+                    </li>
+                    <li class="nav-item" data-service="texts">
+                        <i class="fas fa-pen-fancy"></i>
+                        <span>مولد النصوص</span>
+                    </li>
+                    <li class="nav-item" data-service="convert">
+                        <i class="fas fa-file-converter"></i>
+                        <span>تحويل الملفات</span>
+                    </li>
+                    <li class="nav-item" data-service="tasks">
+                        <i class="fas fa-tasks"></i>
+                        <span>إدارة المهام</span>
+                    </li>
+                    <li class="nav-item" data-service="marketing">
+                        <i class="fas fa-bullhorn"></i>
+                        <span>التسويق الذكي</span>
+                    </li>
+                    <li class="nav-item" data-service="reports">
+                        <i class="fas fa-chart-line"></i>
+                        <span>التقارير الذكية</span>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="subscription-box">
+                    <div class="subscription-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <div class="subscription-info">
+                        <span class="plan-name">خطة مجانية</span>
+                        <span class="plan-features">5 خدمات أساسية</span>
+                    </div>
+                    <button class="upgrade-btn">ترقية</button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <header class="topbar">
+                <div class="topbar-right">
+                    <button class="menu-toggle" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="بحث عن خدمة...">
+                    </div>
+                </div>
+                <div class="topbar-left">
+                    <button class="topbar-btn" id="helpBtn">
+                        <i class="fas fa-question-circle"></i>
+                    </button>
+                    <button class="topbar-btn notification-btn" id="notificationsBtn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <div class="user-menu" id="userMenu">
+                        <div class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="user-info">
+                            <span class="user-name">المستخدم</span>
+                            <span class="user-status">متصل</span>
+                        </div>
+                        <button class="theme-toggle" id="themeToggle">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Workspace -->
+            <div class="workspace">
+                <!-- Service: Design Generator -->
+                <section class="service-panel active" id="design">
+                    <div class="panel-header">
+                        <div class="service-icon design">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <div class="service-title">
+                            <h2>مولد التصميمات</h2>
+                            <p>إنشاء تصاميم احترافية بالذكاء الاصطناعي</p>
+                        </div>
+                    </div>
+                    <div class="panel-content">
+                        <div class="input-section">
+                            <label>وصف التصميم المطلوب</label>
+                            <textarea placeholder="أدخل وصف التصميم الذي تريده..."></textarea>
+                        </div>
+                        <div class="options-section">
+                            <div class="option-group">
+                                <label>نوع التصميم</label>
+                                <select>
+                                    <option>منشور التواصل الاجتماعي</option>
+                                    <option>شعار</option>
+                                    <option>بطاقة أعمال</option>
+                                    <option>بanners</option>
+                                    <option>عرض تقديمي</option>
+                                </select>
+                            </div>
+                            <div class="option-group">
+                                <label>الألوان المفضلة</label>
+                                <div class="color-picker">
+                                    <div class="color-option" style="background: #6366f1;"></div>
+                                    <div class="color-option" style="background: #ec4899;"></div>
+                                    <div class="color-option" style="background: #10b981;"></div>
+                                    <div class="color-option" style="background: #f59e0b;"></div>
+                                    <div class="color-option" style="background: #3b82f6;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="primary-btn">
+                                <i class="fas fa-magic"></i>
+                                إنشاء التصميم
+                            </button>
+                            <button class="secondary-btn">
+                                <i class="fas fa-history"></i>
+                                التصاميم السابقة
+                            </button>
+                        </div>
+                        <div class="result-section">
+                            <div class="placeholder-result">
+                                <i class="fas fa-image"></i>
+                                <p>سيظهر التصميم هنا بعد الإنشاء</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Service: Text Generator -->
+                <section class="service-panel" id="texts">
+                    <div class="panel-header">
+                        <div class="service-icon texts">
+                            <i class="fas fa-pen-fancy"></i>
+                        </div>
+                        <div class="service-title">
+                            <h2>مولد النصوص</h2>
+                            <p>كتابة النصوص والملخصات بالذكاء الاصطناعي</p>
+                        </div>
+                    </div>
+                    <div class="panel-content">
+                        <div class="input-section">
+                            <label>الموضوع أو النص المطلوب</label>
+                            <textarea placeholder="أدخل النص المراد معالجته أو الموضوع المطلوب..."></textarea>
+                        </div>
+                        <div class="options-section">
+                            <div class="option-group">
+                                <label>نوع المحتوى</label>
+                                <select>
+                                    <option>منشور التواصل الاجتماعي</option>
+                                    <option>مقال قصير</option>
+                                    <option>ملخص</option>
+                                    <option>وصف منتج</option>
+                                    <option>بريد إلكتروني</option>
+                                </select>
+                            </div>
+                            <div class="option-group">
+                                <label>طول النص</label>
+                                <select>
+                                    <option>قصير (50-100 كلمة)</option>
+                                    <option>متوسط (100-300 كلمة)</option>
+                                    <option>طويل (300-500 كلمة)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="primary-btn">
+                                <i class="fas fa-wand-magic-sparkles"></i>
+                                إنشاء النص
+                            </button>
+                            <button class="secondary-btn">
+                                <i class="fas fa-copy"></i>
+                                نسخ
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Service: File Conversion -->
+                <section class="service-panel" id="convert">
+                    <div class="panel-header">
+                        <div class="service-icon convert">
+                            <i class="fas fa-file-converter"></i>
+                        </div>
+                        <div class="service-title">
+                            <h2>تحويل الملفات</h2>
+                            <p>تحويل الملفات بين الصيغ المختلفة</p>
+                        </div>
+                    </div>
+                    <div class="panel-content">
+                        <div class="upload-section">
+                            <div class="upload-area" id="uploadArea">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>اسحب الملفات هنا أو</p>
+                                <button class="browse-btn">تصفح الملفات</button>
+                                <span class="supported-formats">PDF, Word, Excel, JPG, PNG, MP4</span>
+                            </div>
+                        </div>
+                        <div class="conversion-options">
+                            <div class="option-group">
+                                <label>صيغة الملف المصدر</label>
+                                <select>
+                                    <option>PDF</option>
+                                    <option>Word (DOCX)</option>
+                                    <option>Excel (XLSX)</option>
+                                    <option>JPG</option>
+                                    <option>PNG</option>
+                                </select>
+                            </div>
+                            <div class="conversion-arrow">
+                                <i class="fas fa-arrow-left"></i>
+                            </div>
+                            <div class="option-group">
+                                <label>صيغة الملف المطلوب</label>
+                                <select>
+                                    <option>Word (DOCX)</option>
+                                    <option>PDF</option>
+                                    <option>Excel (XLSX)</option>
+                                    <option>PNG</option>
+                                    <option>JPG</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="primary-btn">
+                                <i class="fas fa-exchange-alt"></i>
+                                تحويل الملف
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Service: Task Management -->
+                <section class="service-panel" id="tasks">
+                    <div class="panel-header">
+                        <div class="service-icon tasks">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <div class="service-title">
+                            <h2>إدارة المهام</h2>
+                            <p>تنظيم المهام والتذكيرات الذكية</p>
+                        </div>
+                    </div>
+                    <div class="panel-content">
+                        <div class="task-input-section">
+                            <input type="text" class="task-input" placeholder="أضف مهمة جديدة...">
+                            <input type="datetime-local" class="task-date">
+                            <button class="add-task-btn">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                        <div class="tasks-filters">
+                            <button class="filter-btn active">الكل</button>
+                            <button class="filter-btn">نشطة</button>
+                            <button class="filter-btn">مكتملة</button>
+                        </div>
+                        <div class="tasks-list">
+                            <div class="task-item">
+                                <div class="task-checkbox">
+                                    <input type="checkbox" id="task1">
+                                    <label for="task1"></label>
+                                </div>
+                                <div class="task-details">
+                                    <span class="task-title">إعداد تقرير الأداء</span>
+                                    <span class="task-date-info">
+                                        <i class="fas fa-calendar"></i>
+                                        2025-01-15
+                                    </span>
+                                </div>
+                                <div class="task-priority high">عالية</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-checkbox">
+                                    <input type="checkbox" id="task2">
+                                    <label for="task2"></label>
+                                </div>
+                                <div class="task-details">
+                                    <span class="task-title">مراجعة التصميمات الجديدة</span>
+                                    <span class="task-date-info">
+                                        <i class="fas fa-calendar"></i>
+                                        2025-01-16
+                                    </span>
+                                </div>
+                                <div class="task-priority medium">متوسطة</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Service: Smart Marketing -->
+                <section class="service-panel" id="marketing">
+                    <div class="panel-header">
+                        <div class="service-icon marketing">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <div class="service-title">
+                            <h2>التسويق الذكي</h2>
+                            <p>اقتراح حملات تسويقية بالذكاء الاصطناعي</p>
+                        </div>
+                    </div>
+                    <div class="panel-content">
+                        <div class="input-section">
+                            <label>بيانات المنتج أو الخدمة</label>
+                            <textarea placeholder="أدخل وصف منتجك أو خدمتك..."></textarea>
+                        </div>
+                        <div class="options-section">
+                            <div class="option-group">
+                                <label>منصة التسويق</label>
+                                <select>
+                                    <option>جميع المنصات</option>
+                                    <option>فيسبوك</option>
+                                    <option>انستغرام</option>
+                                    <option>تويتر</option>
+                                    <option>لينكد إن</option>
+                                </select>
+                            </div>
+                            <div class="option-group">
+                                <label>هدف الحملة</label>
+                                <select>
+                                    <option>زيادة الوعي</option>
+                                    <option>تحويلات</option>
+                                    <option>تفاعل</option>
+                                    <option>مبيعات</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="primary-btn">
+                                <i class="fas fa-lightbulb"></i>
+                                اقتراح حملات
+                            </button>
+                            <button class="secondary-btn">
+                                <i class="fas fa-chart-pie"></i>
+                                تحليل الأداء
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Service: Smart Reports -->
+                <section class="service-panel" id="reports">
+                    <div class="panel-header">
+                        <div class="service-icon reports">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="service-title">
+                            <h2>التقارير الذكية</h2>
+                            <p>إنشاء تقارير أداء شاملة ومفصلة</p>
+                        </div>
+                    </div>
+                    <div class="panel-content">
+                        <div class="report-type-section">
+                            <div class="report-type-card">
+                                <i class="fas fa-file-pdf"></i>
+                                <span>تقرير PDF</span>
+                            </div>
+                            <div class="report-type-card">
+                                <i class="fas fa-file-excel"></i>
+                                <span>تقرير Excel</span>
+                            </div>
+                            <div class="report-type-card">
+                                <i class="fas fa-chart-bar"></i>
+                                <span>رسوم بيانية</span>
+                            </div>
+                        </div>
+                        <div class="options-section">
+                            <div class="option-group">
+                                <label>الفترة الزمنية</label>
+                                <select>
+                                    <option>هذا الأسبوع</option>
+                                    <option>هذا الشهر</option>
+                                    <option>الشهر الماضي</option>
+                                    <option>آخر 3 أشهر</option>
+                                    <option>السنة الحالية</option>
+                                </select>
+                            </div>
+                            <div class="option-group">
+                                <label>خدمات للتقرير</label>
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox" checked> مولد التصميمات</label>
+                                    <label><input type="checkbox" checked> مولد النصوص</label>
+                                    <label><input type="checkbox"> إدارة المهام</label>
+                                    <label><input type="checkbox"> التسويق</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="primary-btn">
+                                <i class="fas fa-file-export"></i>
+                                إنشاء التقرير
+                            </button>
+                            <button class="secondary-btn">
+                                <i class="fas fa-download"></i>
+                                تحميل
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
