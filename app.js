@@ -138,12 +138,13 @@ function initColorPicker() {
     });
 }
 
+// تم التعديل هنا لربط الأزرار الأساسية بسحابة n8n
 function initActionButtons() {
     // أزرار الإنشاء
     const primaryButtons = document.querySelectorAll('.primary-btn');
     
     primaryButtons.forEach(btn => {
-        btn.addEventListener('click', function() {
+        btn.addEventListener('click', async function() {
             const icon = this.querySelector('i');
             const originalText = this.innerHTML;
             
@@ -151,14 +152,28 @@ function initActionButtons() {
             this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري المعالجة...';
             this.disabled = true;
             
-            // محاكاة عملية الإنشاء
-            setTimeout(() => {
+            try {
+                // تجهيز البيانات لإرسالها
+                const dataToSend = {
+                    action: "button_clicked",
+                    buttonText: this.innerText.replace('جاري المعالجة...', '').trim(),
+                    timestamp: new Date().toISOString()
+                };
+
+                // إرسال البيانات إلى n8n (الانتظار حتى يتم الإرسال)
+                await sendDataToN8n(dataToSend);
+                
+                // إعادة الزر لحالته الأصلية وعرض إشعار النجاح
                 this.innerHTML = originalText;
                 this.disabled = false;
+                showNotification('تم إرسال الطلب ومعالجته بنجاح!', 'success');
                 
-                // عرض إشعار النجاح
-                showNotification('تم إنشاء المحتوى بنجاح!', 'success');
-            }, 2000);
+            } catch (error) {
+                // في حال فشل الاتصال، نُعيد الزر لحالته الطبيعية مع إشعار بالخطأ
+                this.innerHTML = originalText;
+                this.disabled = false;
+                showNotification('حدث خطأ في الاتصال بالخادم السحابي', 'error');
+            }
         });
     });
 
@@ -456,8 +471,8 @@ function getNotificationBg(type) {
     const colors = {
         'success': 'linear-gradient(135deg, #10b981, #059669)',
         'warning': 'linear-gradient(135deg, #f59e0b, #d97706)',
-        'error': 'linear-gradient(135deg, #ef44446)',
-        ', #dc262info': 'linear-gradient(135deg, #3b82f6, #2563eb)'
+        'error': 'linear-gradient(135deg, #ef4444, #dc2626)',
+        'info': 'linear-gradient(135deg, #3b82f6, #2563eb)'
     };
     return colors[type] || colors['info'];
 }
@@ -595,4 +610,27 @@ function formatDate(dateString) {
 // دالة لتوليد معرف فريد
 function generateId() {
     return 'id_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+}
+
+// ========================================
+// دالة إرسال البيانات إلى سحابة n8n
+// ========================================
+async function sendDataToN8n(payload) {
+    const webhookUrl = "https://digitalservises.app.n8n.cloud/webhook-test/39eb115d-b580-486e-a454-992725de5e5c";
+    
+    try {
+        const response = await fetch(webhookUrl, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+        });
+        
+        // إرجاع الرد القادم من n8n
+        return await response.json(); 
+    } catch (error) {
+        console.error("خطأ في الاتصال بـ n8n:", error);
+        throw error;
+    }
 }
